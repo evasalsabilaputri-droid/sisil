@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistem Perpustakaan Modern</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    background: linear-gradient(120deg, #f5f1e9, #e6dccf);
+    animation: bgChange 10s infinite alternate;
+}
+
+/* BACKGROUND ANIMASI */
+@keyframes bgChange {
+    0% { background: linear-gradient(120deg, #f5f1e9, #e6dccf); }
+    50% { background: linear-gradient(120deg, #e8efe6, #d6c7ae); }
+    100% { background: linear-gradient(120deg, #f3e5dc, #d8b4a0); }
+}
+
+/* ICON LUCU */
+body::before {
+    content: "📚 ⋆.ೃ𐦍*:･⋆𐦍.ೃ࿔*:･";
+    position: fixed;
+    opacity: 0.05;
+    font-size: 100px;
+    top: 20%;
+    left: 10%;
+    z-index: -1;
+}
+
+h1 {
+    text-align: center;
+    color: #556b2f;
+}
+
+.deskripsi-sistem {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* SEARCH */
+.wadah-pencarian {
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+}
+
+.input-pencarian {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #bc8f8f;
+}
+
+/* TABLE */
+.wadah-tabel {
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fffaf5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    background: #556b2f;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+tr:hover {
+    background: #f3e5dc;
+}
+
+/* INPUT */
+.editable {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: center;
+}
+
+/* COVER */
+.cover {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* BUTTON */
+.tombol {
+    background: #556b2f;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ========================= */
+/* WELCOME SCREEN */
+/* ========================= */
+
+#welcomeScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, #f5f1e9, #d8b4a0, #e8efe6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.welcome-box {
+    text-align: center;
+    background: #fffaf5;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.welcome-box button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #556b2f;
+    color: white;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- WELCOME -->
+<div id="welcomeScreen">
+    <div class="welcome-box">
+        <h2>⊹₊˚‧︵‿₊୨Selamat Datang୧₊‿︵‧˚₊⊹</h2>
+        <p>Masuk ke dunia buku yang menggemaskan ✨</p>
+        <button onclick="masukWeb()">⋆˚࿔ masuk 𝜗𝜚˚⋆</button>
+    </div>
+</div>
+
+<!-- KONTEN UTAMA -->
+<h1>PERPUSTAKAAN NEO ദ്ദി ˉ͈̀꒳ˉ͈́ )✧</h1>
+<p class="deskripsi-sistem">Selamat datang di perpustakaan NEO! Disini ada beberapa novel kesukaanmu loh...</p>
+
+<div class="wadah-pencarian">
+<input type="text" id="inputPencarian" class="input-pencarian" placeholder="Cari buku...">
+</div>
+
+<div class="wadah-tabel">
+<table id="tabelKatalog">
+
+<tr>
+<th>No</th>
+<th>Cover</th>
+<th>Judul</th>
+<th>Penulis</th>
+<th>Tahun</th>
+<th>Kategori</th>
+<th>ദ്ദി◝ ⩊ ◜.ᐟ</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td><img src="file:///C:/Users/User/Downloads/Tulisan%20Sastra.jpeg" class="cover"><input type="file" onchange="ubahCover(this)"></td>
+<td><input class="editable judul" value="Tulisan Sastra"></td>
+<td><input class="editable penulis" value="Tanderlova"></td>
+<td><input class="editable tahun" value="2020"></td>
+<td><input class="editable kategori" value="Novel Indonesia"></td>
+<td><button class="tombol" onclick="simpan()">Simpan</button></td>
+</tr>
+
+<tr>
+<td>2</td>
+<td><img src="file:///C:/Users/User/Downloads/BUTTERLIES.jpeg" class="cover"><input type="file" onchange="ubahCover(this)"></td>
+<td><input class="editable judul" value="Butterflies"></td>
+<td><input class="editable penulis" value="Alesacakes"></td>
+<td><input class="editable tahun" value="2022"></td>
+<td><input class="editable kategori" value="Novel Indonesia"></td>
+<td><button class="tombol" onclick="simpan()">Simpan</button></td>
+</tr>
+
+<tr>
+<td>3</td>
+<td><img src="file:///C:/Users/User/Downloads/Elegi%20Haekal.jpeg" class="cover"><input type="file" onchange="ubahCover(this)"></td>
+<td><input class="editable judul" value="Elegi Haekal"></td>
+<td><input class="editable penulis" value="Dhia'ah Farah"></td>
+<td><input class="editable tahun" value="2020"></td>
+<td><input class="editable kategori" value="Novel Indonesia"></td>
+<td><button class="tombol" onclick="simpan()">Simpan</button></td>
+</tr>
+
+</table>
+</div>
+
+<script>
+// MASUK
+function masukWeb() {
+    document.getElementById("welcomeScreen").style.display = "none";
+}
+
+// SEARCH
+document.getElementById("inputPencarian").addEventListener("keyup", function() {
+    let keyword = this.value.toLowerCase();
+    let rows = document.querySelectorAll("#tabelKatalog tr");
+
+    rows.forEach((row, index) => {
+        if (index === 0) return;
+        row.style.display = row.innerText.toLowerCase().includes(keyword) ? "" : "none";
+    });
+});
+
+// EDIT COVER
+function ubahCover(input) {
+    const file = input.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            input.previousElementSibling.src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+}
+
+// SIMPAN
+function simpan() {
+    alert("Data berhasil diperbarui!");
+}
+</script>
+
+</body>
+</html>
